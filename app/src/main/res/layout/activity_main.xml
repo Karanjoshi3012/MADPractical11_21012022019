@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    class MainActivity : AppCompatActivity(){
+    private lateinit var binding: ActivityMainBinding
+    private val TAG = "MainActivity"
+    private var listener: ((note: Note, baseListAdapter:NotesAdapter, node: NoteMode, position: int)->Unit)? =
+    note.modificatiedTime = Note.getCurrentDateTime()
+    if (noteMode == NoteMode.add){
+       if (createNote(note))
+            Toast.makeText(this,"Enter valid note",Toast.LENGTH_SHORT).show()
+    }else if (noteMode == NoteMode.edit){
+       log.i(TAG,"Listener:Note:$note")
+          if(!uodateNote(note, pos))
+            Toast.makeText(this,"Enter valid note",Toast.LENGTH_SHORT).show()
+       }
+    }
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:title="Main Activity"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toBottomOf="@id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        >
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="30dp"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
